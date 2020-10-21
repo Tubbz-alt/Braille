@@ -50,4 +50,4 @@ jobs:
     - name: List Contence After
       run: dir .\dist
     - name: Publish package
-      run: yak.exe push .\dist\*.yak
+      run: .\yak.exe push .\dist\*.yak

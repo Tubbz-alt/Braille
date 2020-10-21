@@ -50,4 +50,5 @@ jobs:
     - name: List Contence After
       run: dir .\dist
     - name: Publish package
-      run: Foreach ($file in (ls -Path .\dist\*.yak)) {.\yak.exe push %file}
+#      run: Foreach ($file in (ls -Path .\dist\*.yak)) {.\yak.exe push %file}
+      run: for %i in (.\dist\*.yak) do .\yak.exe push %i

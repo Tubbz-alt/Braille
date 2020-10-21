@@ -49,6 +49,7 @@
     <PackageReference Include="Grasshopper">
       <Version>6.29.20238.11501</Version>
     </PackageReference>
+    <PackageReference Include="System.Resources.Extensions" Version="4.7.1" />
   </ItemGroup>
 
 

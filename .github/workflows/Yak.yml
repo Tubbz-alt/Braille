@@ -26,7 +26,8 @@ jobs:
     name: Publish to Yak
     needs: [build-package]
     runs-on: windows-latest
-
+  env: # Or as an environment variable
+    YAK_TOKEN: ${{ secrets.YAK_TOKEN }}
     steps:
     - uses: actions/checkout@v2
       with:

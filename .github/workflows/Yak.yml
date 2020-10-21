@@ -16,7 +16,7 @@ jobs:
       with:
         dotnet-version: '3.1.x'
     - name: Install dependencies
-      run: dotnet restore .\Braille.csproj -v d
+      run: dotnet restore .\Braille.csproj --verbosity normal
     - name: Build
       run: dotnet build --configuration Release --no-restore --verbosity normal
     - name: Test
@@ -36,7 +36,7 @@ jobs:
       with:
         dotnet-version: '3.1.x'
     - name: Install dependencies
-      run: dotnet restore .\Braille.csproj -v d
+      run: dotnet restore .\Braille.csproj --verbosity normal
     - name: Build
       run: dotnet build --configuration Yak --no-restore --verbosity normal
       # Then use the version string
@@ -50,4 +50,4 @@ jobs:
     - name: List Contence After
       run: dir .\dist
     - name: Publish package
-      run: .\yak.exe push .\dist\*.yak
+      run: for %p in (.\dist\*.yak) DO .\yak.exe push %p

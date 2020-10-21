@@ -50,5 +50,5 @@ jobs:
     - name: List Contence After
       run: dir .\dist
     - name: Publish package
-#      run: Foreach ($file in (ls -Path .\dist\*.yak)) {.\yak.exe push %file}
-      run: for %i in (.\dist\*.yak) do .\yak.exe push %i
+#      run: Foreach ($file in (Get-ChildItem .\dist\ -Filter *.yak -Recurse -EA )) {.\yak.exe push %file}
+      run: Get-ChildItem .\dist -Filter *.yak | ForEach-Object -Process {.\yak.exe push  $_}

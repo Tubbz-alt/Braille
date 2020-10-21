@@ -19,5 +19,5 @@ jobs:
       run: dotnet restore .\Braille.csproj -v d
     - name: Build
       run: dotnet build --configuration Release --no-restore -v d
-#     - name: Test
-#      run: dotnet test --no-restore --verbosity normal
+     - name: Test
+      run: dotnet test --no-restore --verbosity normal

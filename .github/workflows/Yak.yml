@@ -24,7 +24,7 @@ jobs:
 
   publish:
     name: Publish to Yak
-    needs: [build]
+    needs: [build-package]
     runs-on: windows-latest
 
     steps:

@@ -38,4 +38,4 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore --verbosity normal
     - name: Download Yak
-      run: curl -fSLo yak.exe https://files.mcneel.com/yak/tools/latest/yak.exe && yak.exe version
+      run: curl -fSLo yak.exe https://files.mcneel.com/yak/tools/latest/yak.exe && .\yak.exe version

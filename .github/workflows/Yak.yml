@@ -18,6 +18,24 @@ jobs:
     - name: Install dependencies
       run: dotnet restore .\Braille.csproj -v d
     - name: Build
-      run: dotnet build --configuration Release --no-restore -v d
-     - name: Test
+      run: dotnet build --configuration Release --no-restore --verbosity normal
+    - name: Test
       run: dotnet test --no-restore --verbosity normal
+
+  publish:
+    name: Publish to Yak
+    needs: [build]
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.x'
+    - name: Install dependencies
+      run: dotnet restore .\Braille.csproj -v d
+    - name: Build
+      run: dotnet build --configuration Release --no-restore --verbosity normal
+    - name: Download Yak
+      run: - curl -fSLo yak.exe https://files.mcneel.com/yak/tools/latest/yak.exe && yak.exe version

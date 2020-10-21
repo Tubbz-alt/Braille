@@ -46,12 +46,12 @@ jobs:
     - run: echo "NBGV_SemVer2 $NBGV_SemVer2"
     - name: Download Yak
       run: curl -fSLo yak.exe https://files.mcneel.com/yak/tools/latest/yak.exe && .\yak.exe version
-#    - name: Print Version (SemVer2)
-#      run: echo "NBGV_SemVer2: $NBGV_SemVer2"
+    - name: Print Version (SemVer2)
+      run: echo "NBGV_SemVer2: $Env:NBGV_SemVer2"
     - name: List Contence Before
       run: dir .\dist
     - name: Build Yak package
-      run: cd .\dist && ..\yak.exe build --version ""$NBGV_SemVer2" --platform win && cd ..
+      run: cd .\dist && ..\yak.exe build --version "$Env:NBGV_SemVer2" --platform win && cd ..
     - name: List Contence After
       run: dir .\dist
 #    - name: Publish package

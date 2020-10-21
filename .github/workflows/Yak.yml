@@ -46,6 +46,6 @@ jobs:
     - name: Download Yak
       run: curl -fSLo yak.exe https://files.mcneel.com/yak/tools/latest/yak.exe && .\yak.exe version
     - name: Build Yak package
-      run: cd .\dist && dir && ..\yak.exe build --version "$NBGV_SemVer2" --platform win && cd .. && dir .\dist
+      run: cd .\dist && dir && ..\yak.exe build --version $NBGV_SemVer2 --platform win && cd .. && dir .\dist
 #    - name: Publish package
 #      run: yak.exe push .\dist\*.yak

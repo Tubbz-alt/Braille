@@ -23,6 +23,10 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
+ <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Yak|AnyCPU'">
+	<OutputPath>.\dist\</OutputPath>
+	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+ </PropertyGroup>
 
 
   <!-- Local Resources -->

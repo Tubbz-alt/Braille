@@ -1,0 +1,9 @@
+---
+name: braille
+version: 0.0.1-beta
+authors:
+- Povl Filip Sonne-Frederiksen
+description: A toolkit for typesetting Braille in Grasshopper.
+url: https://github.com/pfmephisto/Braille
+secret:
+  id: e368c620-f89e-4967-8593-c38021b75ed3

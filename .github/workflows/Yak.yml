@@ -26,6 +26,8 @@ jobs:
     name: Publish to Yak
     needs: [build-package]
     runs-on: windows-latest
+    env:
+      yak_package_version: $(assembly_version)
 
     steps:
     - uses: actions/checkout@v1
@@ -36,6 +38,10 @@ jobs:
     - name: Install dependencies
       run: dotnet restore .\Braille.csproj -v d
     - name: Build
-      run: dotnet build --configuration Release --no-restore --verbosity normal
+      run: dotnet build --configuration Yak --no-restore --verbosity normal
     - name: Download Yak
       run: curl -fSLo yak.exe https://files.mcneel.com/yak/tools/latest/yak.exe && .\yak.exe version
+    - name: Build Yak package
+      run: cd .\dist && dir && ..\yak.exe build --version "${{ env.yak_package_version }}" --platform win && cd .. && dir .\dist
+#    - name: Publish package
+#      run: yak.exe push .\dist\*.yak

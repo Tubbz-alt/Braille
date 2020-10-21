@@ -50,4 +50,4 @@ jobs:
     - name: List Contence After
       run: dir .\dist
     - name: Publish package
-      run: for /R %p in (.\dist\*.yak) DO .\yak.exe push %p
+      run: $files = ls -Path .\dist\*.yak && foreach(%file in $files) {.\yak.exe push %file}

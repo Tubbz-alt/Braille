@@ -44,12 +44,8 @@ jobs:
     - uses: dotnet/nbgv@master
       with:
         setAllVars: true
-    - name: Download Yak
-      run: curl -fSLo yak.exe https://files.mcneel.com/yak/tools/latest/yak.exe && .\yak.exe version
-    - name: Build Yak package
-      run: cd .\dist && ..\yak.exe build --version "$Env:NBGV_SemVer2" --platform win && cd ..
-    - name: List Contence After
-      run: dir .\dist
-    - name: Publish package
-#      run: Foreach ($file in (Get-ChildItem .\dist\ -Filter *.yak -Recurse -EA )) {.\yak.exe push %file}
-      run: Get-ChildItem .\dist -Filter *.yak | ForEach-Object -Process {.\yak.exe push  $_}
+    - name: Push to Yak
+      uses: pfmephisto/rhino-yak
+      with:
+        build-directory: ./dist
+        version: "$Env:NBGV_SemVer2"
